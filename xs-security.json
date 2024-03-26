@@ -5,15 +5,27 @@
     {
       "name": "uaa.user",
       "description": "UAA"
-    }
+    },
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "admin"
+  } 
   ],
   "role-templates": [
     {
       "name": "Token_Exchange",
       "description": "UAA",
       "scope-references": [
-        "uaa.user"
+        "uaa.user" 
       ]
+    },
+    {
+      "name": "MSAAdmin",
+      "description": "generated",
+      "scope-references": [
+          "$XSAPPNAME.admin"
+      ],
+      "attribute-references": []
     }
   ]
 }

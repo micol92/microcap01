@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: microcap01
+ID: microcap02
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -10,7 +10,7 @@ build-parameters:
       commands:
         - npx cds build --production
 modules:
-  - name: microcap01-srv
+  - name: microcap02-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -22,28 +22,28 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: common-uaa
-      - name: microcap01-db
+      - name: same-uaa
+      - name: microcap02-db
 
-  - name: microcap01-db-deployer
+  - name: microcap02-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: microcap01-db
+      - name: microcap02-db
 
 resources:
-  - name: common-uaa
+  - name: same-uaa
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: common-uaa
+        xsappname: same-uaa
         tenant-mode: dedicated
-  - name: microcap01-db
+  - name: microcap02-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana

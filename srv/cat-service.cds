@@ -6,7 +6,8 @@ service CatalogService @(requires: 'any') {
 
 service RiskService {
 
-  @(requires: 'authenticated-user')  
+  //@(requires: 'authenticated-user')  
+  @(requires:'admin')
   entity Risks as projection on my.Risks;
     annotate Risks with @odata.draft.enabled;
     

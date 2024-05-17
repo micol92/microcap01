@@ -20,7 +20,7 @@
       ]
     },
     {
-      "name": "MSAAdmin",
+      "name": "microcap20",
       "description": "generated",
       "scope-references": [
           "$XSAPPNAME.admin"
